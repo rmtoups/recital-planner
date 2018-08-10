@@ -10,3 +10,11 @@ The application will be able to automatically generate a run order subject to va
 ## MVP:
 Preliminary functions:
 * given a user specified proposed run order, the application should be able to identify potential conflicts
+
+
+## Classes:
+* Dance
+	* String[] dancers
+	* String title
+* RunOrder
+	* Dance[] order

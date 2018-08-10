@@ -1,0 +1,16 @@
+apply plugin: 'java'
+apply plugin: 'java-library'
+apply plugin: 'application'
+
+repositories {
+	mavenCentral()
+}
+
+jar {
+	baseName = 'recital_planner'
+	version = '0.0.0'
+}
+
+dependencies {
+	testCompile "junit:junit:4.12"
+}
