@@ -6,7 +6,7 @@ public class Dance {
 	private String[] dancers;
 	private String title;
 
-	Dance(String[] d, String t) {
+	public Dance(String[] d, String t) {
 		dancers = d;
 		title = t;
 	}
