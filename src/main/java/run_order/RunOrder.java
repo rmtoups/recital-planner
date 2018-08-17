@@ -11,7 +11,13 @@ public class RunOrder {
 	}
 
 	public ArrayList<Conflict> findConflicts() {
-		throw new UnsupportedOperationException("Method not yet implemented.");
+		ArrayList<Conflict> conflicts = new ArrayList<Conflict>();
+		for (int i = 0; i < order.length - 1; i++) {
+			if (Conflict.containsOverlap(order[i],order[i+1])){
+				conflicts.add(new Conflict(order[i],order[i+1]));
+			}
+		}
+		return conflicts;
 	}
 }
 
