@@ -3,9 +3,10 @@ package run_order;
 import java.lang.*;
 import java.util.ArrayList;
 
-public abstract class Conflict {
+public class Conflict {
 	private Dance dance1;
 	private Dance dance2;
+	private ArrayList<String> overlapDancers;
 
 	public Conflict(Dance d1, Dance d2) {
 		dance1 = d1;
@@ -19,15 +20,15 @@ public abstract class Conflict {
 	public Dance getDance2() {
 		return dance2;
 	}
-}
+//}
 
-class DancerConflict extends Conflict {
-	private ArrayList<String> overlapDancers;
+// class DancerConflict extends Conflict {
+// 	private ArrayList<String> overlapDancers;
 
-	public DancerConflict(Dance d1, Dance d2) {
-		super(d1,d2);
-		overlapDancers = null;
-	}
+// 	public DancerConflict(Dance d1, Dance d2) {
+// 		super(d1,d2);
+// 		overlapDancers = null;
+// 	}
 
 	public ArrayList<String> getOverlapDancers() {
 		if (overlapDancers != null) {
@@ -63,11 +64,11 @@ class DancerConflict extends Conflict {
 			return true;
 		}
 
-		if (!(o instanceof DancerConflict)) {
+		if (!(o instanceof Conflict)) {
 			return false;
 		}
 
-		DancerConflict c = (DancerConflict) o;
+		Conflict c = (Conflict) o;
 		return (getDance1().equals(c.getDance1()) && getDance2().equals(c.getDance2()));
 	}
 }

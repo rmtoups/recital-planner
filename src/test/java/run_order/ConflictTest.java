@@ -17,8 +17,7 @@ public class ConflictTest {
 		String[] dancers2 = {"a2","b2","c2"};
 		Dance d2 = new Dance(dancers2,"dance2");
 
-		Conflict c = new DancerConflict(d1,d2);
-		DancerConflict d = new DancerConflict(d1,d2);
+		Conflict c = new Conflict(d1,d2);
 	}
 
 	@Test
@@ -28,7 +27,7 @@ public class ConflictTest {
 		String[] dancers2 = {"a2","b2","c2"};
 		Dance d2 = new Dance(dancers2,"dance2");
 
-		Conflict c = new DancerConflict(d1,d2);
+		Conflict c = new Conflict(d1,d2);
 		Assert.assertEquals(d1,c.getDance1());
 		Assert.assertEquals(d2,c.getDance2());
 	}
@@ -45,16 +44,16 @@ public class ConflictTest {
 		Dance d4 = new Dance(dancers4,"dance4");
 
 		// no overlap
-		DancerConflict c1 = new DancerConflict(d1,d2);
+		Conflict c1 = new Conflict(d1,d2);
 		Assert.assertEquals(0,c1.getOverlapDancers().size());
 
 		// one overlap
-		DancerConflict c2 = new DancerConflict(d1,d3);
+		Conflict c2 = new Conflict(d1,d3);
 		Assert.assertEquals(1,c2.getOverlapDancers().size());
 		Assert.assertEquals("a1",c2.getOverlapDancers().get(0));
 
 		//all overlap
-		DancerConflict c3 = new DancerConflict(d2,d4);
+		Conflict c3 = new Conflict(d2,d4);
 		Assert.assertEquals(3,c3.getOverlapDancers().size());
 		ArrayList<String> dancersList = new ArrayList<String>();
 		for (int i = 0; i < dancers2.length; i++) {
@@ -75,13 +74,13 @@ public class ConflictTest {
 		Dance d4 = new Dance(dancers4,"dance4");
 
 		// no overlap
-		Assert.assertFalse(DancerConflict.containsOverlap(d1,d2));
+		Assert.assertFalse(Conflict.containsOverlap(d1,d2));
 
 		// one overlap
-		Assert.assertTrue(DancerConflict.containsOverlap(d1,d3));
+		Assert.assertTrue(Conflict.containsOverlap(d1,d3));
 
 		//all overlap
-		Assert.assertTrue(DancerConflict.containsOverlap(d2,d4));
+		Assert.assertTrue(Conflict.containsOverlap(d2,d4));
 	}
 
 	@Test
@@ -96,9 +95,9 @@ public class ConflictTest {
 		String[] dancers4 = {"a2","b2","c2"};
 		Dance d4 = new Dance(dancers4,"dance4");
 
-		DancerConflict c1 = new DancerConflict(d1,d3);
-		DancerConflict c2 = new DancerConflict(d1,d3);
-		DancerConflict c3 = new DancerConflict(d2,d4);
+		Conflict c1 = new Conflict(d1,d3);
+		Conflict c2 = new Conflict(d1,d3);
+		Conflict c3 = new Conflict(d2,d4);
 
 		// reflexive
 		Assert.assertTrue(c1.equals(c1));
