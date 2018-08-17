@@ -1,28 +1,59 @@
 package run_order;
 
 import java.lang.*;
+import java.util.ArrayList;
 
 public abstract class Conflict {
-	private String[] relevantDances;
+	private Dance dance1;
+	private Dance dance2;
 
-	public Conflict(String[] dances) {
-		relevantDances = dances;
+	public Conflict(Dance d1, Dance d2) {
+		dance1 = d1;
+		dance2 = d2;
 	}
 
-	public String[] getRelevantDances() {
-		throw new UnsupportedOperationException("method not yet implemented");
+	public Dance getDance1() {
+		return dance1;
+	}
+
+	public Dance getDance2() {
+		return dance2;
 	}
 }
 
 class DancerConflict extends Conflict {
-	private String[] overlapDancers;
+	private ArrayList<String> overlapDancers;
 
-	public DancerConflict(String[] dances, String[] dancers) {
-		super(dances);
-		overlapDancers = dancers;
+	public DancerConflict(Dance d1, Dance d2) {
+		super(d1,d2);
+		overlapDancers = null;
 	}
 
-	public String[] getOverlapDancers() {
-		throw new UnsupportedOperationException("method not yet implemented");
+	public ArrayList<String> getOverlapDancers() {
+		if (overlapDancers != null) {
+			return overlapDancers;
+		}
+		overlapDancers = getOverlapHelper(getDance1(),getDance2());
+		return overlapDancers;
+	}
+
+	public static ArrayList<String> getOverlapHelper(Dance d1, Dance d2) {
+		ArrayList<String> overlap = new ArrayList<String>();
+		for (int i = 0; i < d1.getDancers().length; i++) {
+			for (int j = 0; j < d2.getDancers().length; j++) {
+				if (d1.getDancers()[i] == d2.getDancers()[j]) {
+					overlap.add(d1.getDancers()[i]);
+				}
+			}
+		}
+		return overlap;
+	}
+
+	public static boolean containsOverlap(Dance d1, Dance d2) {
+		ArrayList<String> overlap = getOverlapHelper(d1,d2);
+		if (overlap.size() > 0) {
+			return true;
+		}
+		return false;
 	}
 }

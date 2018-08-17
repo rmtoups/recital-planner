@@ -24,4 +24,9 @@ public class DanceTest {
 		Dance d = new Dance(dancers,"dance1");
 		Assert.assertEquals("dance1",d.getTitle());
 	}
+
+	@Test
+	public void testEquals() {
+		
+	}
 }
