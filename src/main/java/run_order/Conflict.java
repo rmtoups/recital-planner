@@ -41,7 +41,7 @@ class DancerConflict extends Conflict {
 		ArrayList<String> overlap = new ArrayList<String>();
 		for (int i = 0; i < d1.getDancers().length; i++) {
 			for (int j = 0; j < d2.getDancers().length; j++) {
-				if (d1.getDancers()[i] == d2.getDancers()[j]) {
+				if (d1.getDancers()[i].equals(d2.getDancers()[j])) {
 					overlap.add(d1.getDancers()[i]);
 				}
 			}
@@ -55,5 +55,19 @@ class DancerConflict extends Conflict {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (o == this) {
+			return true;
+		}
+
+		if (!(o instanceof DancerConflict)) {
+			return false;
+		}
+
+		DancerConflict c = (DancerConflict) o;
+		return (getDance1().equals(c.getDance1()) && getDance2().equals(c.getDance2()));
 	}
 }
