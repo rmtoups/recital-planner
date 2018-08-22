@@ -11,10 +11,18 @@ public class ConflictTest {
  *************************************************/
 
 	@Test
-	public void testDancerConflict() {
-		String[] dancers1 = {"a1","b1","c1"};
+	public void Conflict() {
+
+		ArrayList<String> dancers1 = new ArrayList<String>();
+		dancers1.add("a1");
+		dancers1.add("b1");
+		dancers1.add("c1");
 		Dance d1 = new Dance(dancers1,"dance1");
-		String[] dancers2 = {"a2","b2","c2"};
+
+		ArrayList<String> dancers2 = new ArrayList<String>();
+		dancers2.add("a2");
+		dancers2.add("b2");
+		dancers2.add("c2");
 		Dance d2 = new Dance(dancers2,"dance2");
 
 		Conflict c = new Conflict(d1,d2);
@@ -22,9 +30,17 @@ public class ConflictTest {
 
 	@Test
 	public void testGetDances() {
-		String[] dancers1 = {"a1","b1","c1"};
+
+		ArrayList<String> dancers1 = new ArrayList<String>();
+		dancers1.add("a1");
+		dancers1.add("b1");
+		dancers1.add("c1");
 		Dance d1 = new Dance(dancers1,"dance1");
-		String[] dancers2 = {"a2","b2","c2"};
+
+		ArrayList<String> dancers2 = new ArrayList<String>();
+		dancers2.add("a2");
+		dancers2.add("b2");
+		dancers2.add("c2");
 		Dance d2 = new Dance(dancers2,"dance2");
 
 		Conflict c = new Conflict(d1,d2);
@@ -34,13 +50,29 @@ public class ConflictTest {
 
 	@Test
 	public void testGetOverlapDancers() {
-		String[] dancers1 = {"a1","b1","c1"};
+
+		ArrayList<String> dancers1 = new ArrayList<String>();
+		dancers1.add("a1");
+		dancers1.add("b1");
+		dancers1.add("c1");
 		Dance d1 = new Dance(dancers1,"dance1");
-		String[] dancers2 = {"a2","b2","c2"};
+
+		ArrayList<String> dancers2 = new ArrayList<String>();
+		dancers2.add("a2");
+		dancers2.add("b2");
+		dancers2.add("c2");
 		Dance d2 = new Dance(dancers2,"dance2");
-		String[] dancers3 = {"a1","b2","c2"};
+
+		ArrayList<String> dancers3 = new ArrayList<String>();
+		dancers3.add("a1");
+		dancers3.add("b2");
+		dancers3.add("c2");
 		Dance d3 = new Dance(dancers3,"dance3");
-		String[] dancers4 = {"a2","b2","c2"};
+		
+		ArrayList<String> dancers4 = new ArrayList<String>();
+		dancers4.add("a2");
+		dancers4.add("b2");
+		dancers4.add("c2");
 		Dance d4 = new Dance(dancers4,"dance4");
 
 		// no overlap
@@ -56,21 +88,37 @@ public class ConflictTest {
 		Conflict c3 = new Conflict(d2,d4);
 		Assert.assertEquals(3,c3.getOverlapDancers().size());
 		ArrayList<String> dancersList = new ArrayList<String>();
-		for (int i = 0; i < dancers2.length; i++) {
-			dancersList.add(dancers2[i]);
+		for (int i = 0; i < dancers2.size(); i++) {
+			dancersList.add(dancers2.get(i));
 		}
 		Assert.assertEquals(dancersList,c3.getOverlapDancers());
 	}
 
 	@Test
 	public void testContainsOverlap() {
-		String[] dancers1 = {"a1","b1","c1"};
+
+		ArrayList<String> dancers1 = new ArrayList<String>();
+		dancers1.add("a1");
+		dancers1.add("b1");
+		dancers1.add("c1");
 		Dance d1 = new Dance(dancers1,"dance1");
-		String[] dancers2 = {"a2","b2","c2"};
+
+		ArrayList<String> dancers2 = new ArrayList<String>();
+		dancers2.add("a2");
+		dancers2.add("b2");
+		dancers2.add("c2");
 		Dance d2 = new Dance(dancers2,"dance2");
-		String[] dancers3 = {"a1","b2","c2"};
+
+		ArrayList<String> dancers3 = new ArrayList<String>();
+		dancers3.add("a1");
+		dancers3.add("b2");
+		dancers3.add("c2");
 		Dance d3 = new Dance(dancers3,"dance3");
-		String[] dancers4 = {"a2","b2","c2"};
+
+		ArrayList<String> dancers4 = new ArrayList<String>();
+		dancers4.add("a2");
+		dancers4.add("b2");
+		dancers4.add("c2");
 		Dance d4 = new Dance(dancers4,"dance4");
 
 		// no overlap
@@ -86,13 +134,28 @@ public class ConflictTest {
 	@Test
 	public void testEquals() {
 
-		String[] dancers1 = {"a1","b1","c1"};
+		ArrayList<String> dancers1 = new ArrayList<String>();
+		dancers1.add("a1");
+		dancers1.add("b1");
+		dancers1.add("c1");
 		Dance d1 = new Dance(dancers1,"dance1");
-		String[] dancers2 = {"a2","b2","c2"};
+
+		ArrayList<String> dancers2 = new ArrayList<String>();
+		dancers2.add("a2");
+		dancers2.add("b2");
+		dancers2.add("c2");
 		Dance d2 = new Dance(dancers2,"dance2");
-		String[] dancers3 = {"a1","b2","c2"};
+
+		ArrayList<String> dancers3 = new ArrayList<String>();
+		dancers3.add("a1");
+		dancers3.add("b2");
+		dancers3.add("c2");
 		Dance d3 = new Dance(dancers3,"dance3");
-		String[] dancers4 = {"a2","b2","c2"};
+
+		ArrayList<String> dancers4 = new ArrayList<String>();
+		dancers4.add("a2");
+		dancers4.add("b2");
+		dancers4.add("c2");
 		Dance d4 = new Dance(dancers4,"dance4");
 
 		Conflict c1 = new Conflict(d1,d3);

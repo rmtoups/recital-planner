@@ -8,13 +8,22 @@ public class RunOrderTest {
 
 	@Test
 	public void testRunOrder() {
-		String[] dancers1 = {"a1","b1","c1"};
+		ArrayList<String> dancers1 = new ArrayList<String>();
+		dancers1.add("a1");
+		dancers1.add("b1");
+		dancers1.add("c1");
 		Dance d1 = new Dance(dancers1,"dance1");
 
-		String[] dancers2 = {"a2","b2","c2"};
+		ArrayList<String> dancers2 = new ArrayList<String>();
+		dancers2.add("a2");
+		dancers2.add("b2");
+		dancers2.add("c2");
 		Dance d2 = new Dance(dancers2,"dance2");
 
-		String[] dancers3 = {"a3","b3","c3"};
+		ArrayList<String> dancers3 = new ArrayList<String>();
+		dancers3.add("a3");
+		dancers3.add("b3");
+		dancers3.add("c3");
 		Dance d3 = new Dance(dancers3,"dance3");
 
 		Dance[] order = {d1,d2,d3};
@@ -23,25 +32,40 @@ public class RunOrderTest {
 
 	@Test
 	public void testFindConflicts() {
-		String[] dancers1 = {"a1","b1","c1"};
+		ArrayList<String> dancers1 = new ArrayList<String>();
+		dancers1.add("a1");
+		dancers1.add("b1");
+		dancers1.add("c1");
 		Dance d1 = new Dance(dancers1,"dance1");
 
-		String[] dancers2 = {"a2","b2","c2"};
+		ArrayList<String> dancers2 = new ArrayList<String>();
+		dancers2.add("a2");
+		dancers2.add("b2");
+		dancers2.add("c2");
 		Dance d2 = new Dance(dancers2,"dance2");
 
-		String[] dancers3 = {"a3","b3","c3"};
+		ArrayList<String> dancers3 = new ArrayList<String>();
+		dancers3.add("a3");
+		dancers3.add("b3");
+		dancers3.add("c3");
 		Dance d3 = new Dance(dancers3,"dance3");
 
-		String[] dancers4 = {"a1"};
+		ArrayList<String> dancers4 = new ArrayList<String>();
+		dancers4.add("a1");
 		Dance d4 = new Dance(dancers4,"dance4");
 
-		String[] dancers5 = {"b2"};
+		ArrayList<String> dancers5 = new ArrayList<String>();
+		dancers5.add("b2");
 		Dance d5 = new Dance(dancers5,"dance5");
 
-		String[] dancers6 = {"c3"};
+		ArrayList<String> dancers6 = new ArrayList<String>();
+		dancers6.add("c3");
 		Dance d6 = new Dance(dancers6,"dance6");
 
-		String[] dancers7 = {"a1","b1","b2"};
+		ArrayList<String> dancers7 = new ArrayList<String>();
+		dancers7.add("a1");
+		dancers7.add("b1");
+		dancers7.add("b2");
 		Dance d7 = new Dance(dancers7,"dance7");
 
 		// no conflicts
@@ -104,5 +128,10 @@ public class RunOrderTest {
 		Assert.assertEquals(1,conflicts5.get(2).getOverlapDancers().size());
 		Assert.assertEquals("c3",conflicts5.get(2).getOverlapDancers().get(0));
 
+	}
+
+	@Test
+	public void testFindOptimal() {
+		// TODO: implement
 	}
 }

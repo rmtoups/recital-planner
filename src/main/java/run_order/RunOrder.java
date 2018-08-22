@@ -19,6 +19,11 @@ public class RunOrder {
 		}
 		return conflicts;
 	}
+
+	public Dance[] findOptimal() {
+		// TODO: implement this much later
+		throw new UnsupportedOperationException("Method not yet implemented");
+	}
 }
 
 //throw new UnsupportedOperationException("Method not yet implemented.");

@@ -1,20 +1,34 @@
 package run_order;
 
 import java.lang.*;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Dance {
-	private String[] dancers;
+	private ArrayList<String> dancers;
 	private String title;
 
-	public Dance(String[] d, String t) {
-		dancers = d;
-		Arrays.sort(dancers);
+	public Dance(String t) {
+		dancers = new ArrayList<String>();
 		title = t;
 	}
 
-	public String[] getDancers() {
+	public Dance(ArrayList<String> d, String t) {
+		dancers = d;
+		title = t;
+	}
+
+	public ArrayList<String> getDancers() {
+		Collections.sort(dancers);
 		return dancers;
+	}
+
+	public void addDancer(String name) {
+		dancers.add(name);
+	}
+
+	public boolean removeDancer(String name) {
+		return dancers.remove(name);
 	}
 
 	public String getTitle() {

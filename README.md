@@ -13,8 +13,12 @@ Preliminary functions:
 
 
 ## Classes:
+
+### Model
 * Dance
-	* String[] dancers
-	* String title
+* Conflict
 * RunOrder
-	* Dance[] order
+
+### View
+
+### Controller

@@ -20,15 +20,6 @@ public class Conflict {
 	public Dance getDance2() {
 		return dance2;
 	}
-//}
-
-// class DancerConflict extends Conflict {
-// 	private ArrayList<String> overlapDancers;
-
-// 	public DancerConflict(Dance d1, Dance d2) {
-// 		super(d1,d2);
-// 		overlapDancers = null;
-// 	}
 
 	public ArrayList<String> getOverlapDancers() {
 		if (overlapDancers != null) {
@@ -40,10 +31,10 @@ public class Conflict {
 
 	public static ArrayList<String> getOverlapHelper(Dance d1, Dance d2) {
 		ArrayList<String> overlap = new ArrayList<String>();
-		for (int i = 0; i < d1.getDancers().length; i++) {
-			for (int j = 0; j < d2.getDancers().length; j++) {
-				if (d1.getDancers()[i].equals(d2.getDancers()[j])) {
-					overlap.add(d1.getDancers()[i]);
+		for (int i = 0; i < d1.getDancers().size(); i++) {
+			for (int j = 0; j < d2.getDancers().size(); j++) {
+				if (d1.getDancers().get(i).equals(d2.getDancers().get(j))) {
+					overlap.add(d1.getDancers().get(i));
 				}
 			}
 		}
