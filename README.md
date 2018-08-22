@@ -20,5 +20,7 @@ Preliminary functions:
 * RunOrder
 
 ### View
+* Input
+* Output
 
 ### Controller
